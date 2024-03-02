@@ -35,7 +35,7 @@ const EventPage = () => {
 		const fetchEvents = async () => {
 			try {
 				const response = await axios.get<EventPageProps>(
-					'http://localhost:9090/events',
+					`${import.meta.env.VITE_MAIN_ROUTE}/events`,
 					{
 						headers: {
 							['x-access-token']: `${import.meta.env.VITE_TOKEN_KEY}`,
@@ -63,7 +63,7 @@ const EventPage = () => {
 		const fetchUser = async () => {
 			try {
 				const response = await axios.get<UserProps>(
-					`http://localhost:9090/users/${event.owner}`
+					`${import.meta.env.VITE_MAIN_ROUTE}/users/${event.owner}`
 				);
 				setUser(response.data.user);
 			} catch (error) {

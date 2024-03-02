@@ -14,7 +14,7 @@ function useFetchUser(userId?: string) {
 		const fetchUser = async () => {
 			try {
 				const response = await axios.get<User>(
-					`http://localhost:9090/users/${userId}`
+					`http://localhost:9090/api/users/${userId}`
 				);
 				setUser(response.data);
 			} catch (error) {

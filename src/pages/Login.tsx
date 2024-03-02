@@ -55,7 +55,7 @@ const Login = () => {
 
 		try {
 			setErrorMessage('');
-			const response = await axios.post('http://localhost:9090/login', {
+			const response = await axios.post('http://localhost:9090/api/login', {
 				email,
 				password,
 			});

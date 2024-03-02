@@ -51,11 +51,14 @@ const EventForm = () => {
 
 	const onSubmit: SubmitHandler<FormInput> = async (data: FormInput) => {
 		try {
-			const response = await axios.post('http://localhost:9090/events/create', {
-				...data,
-				owner: userId,
-				participants: [userId],
-			});
+			const response = await axios.post(
+				`${import.meta.env.VITE_MAIN_ROUTE}/events/create`,
+				{
+					...data,
+					owner: userId,
+					participants: [userId],
+				}
+			);
 			console.log(response.data);
 			navigate('/');
 		} catch (error) {
@@ -246,12 +249,13 @@ const EventForm = () => {
 					defaultValue={false}
 					render={({ field }) => (
 						<FormControlLabel
+							sx={{ padding: 1 }}
 							control={<Switch {...field} />}
 							label="Is Promoted?"
 						/>
 					)}
 				/>
-				<Button type="submit" variant="contained" color="primary">
+				<Button type="submit" fullWidth variant="contained" color="primary">
 					Create Event
 				</Button>
 				{errors.name && <Alert severity="error">{errors.name.message}</Alert>}

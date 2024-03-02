@@ -22,7 +22,7 @@ const Home = () => {
 
 	const fetchEvents = async () => {
 		try {
-			let url = 'http://localhost:9090/events/';
+			let url = `${import.meta.env.VITE_MAIN_ROUTE}/events`;
 
 			if (searchQuery || eventType) {
 				url += '?';

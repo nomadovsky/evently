@@ -14,7 +14,7 @@ const LocationMap: React.FC = () => {
 		const fetchEvents = async () => {
 			try {
 				const response = await axios.get<EventObjectProps>(
-					'http://localhost:9090/events',
+					`${import.meta.env.VITE_MAIN_ROUTE}/events`,
 					{
 						headers: {
 							['x-access-token']: `${import.meta.env.VITE_TOKEN_KEY}`,

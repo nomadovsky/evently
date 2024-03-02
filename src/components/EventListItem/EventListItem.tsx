@@ -63,7 +63,7 @@ const EventListItem = ({
 	const handleClickJoin = async () => {
 		try {
 			const response = await axios.get(
-				`http://localhost:9090/events/event/${_id}`,
+				`${import.meta.env.VITE_MAIN_ROUTE}/events/event/${_id}`,
 				{
 					headers: {
 						['x-access-token']: `${import.meta.env.VITE_TOKEN_KEY}`,
@@ -78,7 +78,7 @@ const EventListItem = ({
 				participants = [...participants, userId];
 			}
 
-			await axios.patch(`http://localhost:9090/events/${_id}`, {
+			await axios.patch(`${import.meta.env.VITE_MAIN_ROUTE}/events/${_id}`, {
 				...event,
 				participants,
 			});
@@ -92,7 +92,7 @@ const EventListItem = ({
 	const handleClickLeave = async () => {
 		try {
 			const response = await axios.get(
-				`http://localhost:9090/events/event/${_id}`,
+				`${import.meta.env.VITE_MAIN_ROUTE}/event/${_id}`,
 				{
 					headers: {
 						['x-access-token']: `${import.meta.env.VITE_TOKEN_KEY}`,
@@ -110,7 +110,7 @@ const EventListItem = ({
 				console.log(participants);
 
 				await axios.patch(
-					`http://localhost:9090/events/${_id}`,
+					`${import.meta.env.VITE_MAIN_ROUTE}/events/${_id}`,
 					{
 						...event,
 						participants,

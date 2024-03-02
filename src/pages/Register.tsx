@@ -39,7 +39,7 @@ export const Register = () => {
 				{ abortEarly: false }
 			);
 			setErrorMessage('');
-			const response = await axios.post('http://localhost:9090/register', {
+			const response = await axios.post('http://localhost:9090/api/register', {
 				username,
 				email,
 				password,
